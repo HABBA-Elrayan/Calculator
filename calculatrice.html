@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculator</title>
+    <style>
+
+        body{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            background-color: black;
+        }
+
+        h1{
+            font-family: Arial, Helvetica, sans-serif;
+            color: white;
+            font-size: 40px;
+        }
+        #screen{
+            height: 100px;
+            width: 260px;
+            background-color: black;
+            border-radius: 20px 20px 0 0;
+            display:flex ;
+            align-items: center;
+            justify-content: center;
+            border: 2px solid white;
+            border-bottom: 0cap;
+        }
+
+        #result{
+            display:flex ;
+            align-items: center;
+            justify-content: flex-end;
+            color: black;
+            text-align: right;
+            font-size: 40px;
+            margin: 10px;
+            width: 85%;
+            height: 80%;
+            box-sizing: border-box;
+            margin: 0%;
+            background-color: white;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+
+        #container{
+            height: 350px;
+            width: 260px;
+            background-color: black;
+            display: grid;
+            align-items: center;
+            justify-items: center;
+            border-radius: 0 0 30px 30px;
+            grid-template-columns: 1fr 1fr 1fr 1fr;
+            grid-template-rows: 1fr 1fr 1fr 1fr 1fr;
+            grid-template-areas: 
+            'a b c d'
+            'e f g h'
+            'i j k l'
+            'm n o p'
+            'q r s t';
+            border: 2px solid white;
+            border-top: 0cap;
+        }
+
+
+
+        .rond{
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+            border: 1px solid black;
+            background-color: rgb(80, 74, 74);
+            color: white;
+            font-size: 15px;
+        }
+
+        .rond:hover{
+            background-color: white;
+            border: 1px solid black;
+            color: black;
+        }
+
+        .op {
+            background-color: orange;
+        }
+    </style>
+</head>
+<body>
+    
+    <h1>Calculator Project</h1>
+    <div id="screen">
+        <p id="result"></p>
+    </div>
+    <div id="container">
+        <button class="rond" onclick="
+            ecrire(1);
+            ">1</button>
+        <button class="rond"
+        onclick="
+        ecrire(2);
+        ">2</button>
+        <button class="rond" onclick="
+        ecrire(3);
+        ">3</button>
+        <button class="rond op" onclick="
+         ecrire('+');
+        ">+</button>
+        <button class="rond" onclick="
+         ecrire(4);
+        ">4</button>
+        <button class="rond" onclick="
+         ecrire(5);
+        ">5</button>
+        <button class="rond" onclick="
+         ecrire(6);
+        ">6</button>
+        <button class="rond op" onclick="
+         ecrire('-');
+        ">-</button>
+        <button class="rond" onclick="
+         ecrire(7);
+        ">7</button>
+        <button class="rond" onclick="
+         ecrire(8);
+        ">8</button>
+        <button class="rond" onclick="
+         ecrire(9);
+        ">9</button>
+        <button class="rond op" onclick="
+         ecrire('*');
+        ">*</button>
+        <button class="rond" onclick="
+        ecrire(0);
+        ">0</button>
+        <button class="rond" onclick="
+        ecrire('.');
+        ">.</button>
+        <button class="rond" onclick="
+        calculate();
+        ">=</button>
+        <button class="rond op" onclick="
+        ecrire('/');
+        ">/</button>
+        <button class="rond" onclick="
+        supprimer();
+        ">Clear</button>
+    </div>
+    <script>
+
+        function ecrire(valeur){
+            let affichage = document.querySelector('#result').innerHTML;
+            document.querySelector('#result').innerHTML=`${affichage}`+ `${valeur}`;
+        }
+
+        function calculate(){
+            let result = document.querySelector('#result').innerHTML;
+            document.querySelector('#result').innerHTML=eval(result);
+        }
+
+        function supprimer(){
+            document.querySelector('#result').innerHTML='';
+
+
+        }
+    
+    </script>
+    
+    
+</body>
+</html>
